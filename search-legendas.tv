@@ -1,0 +1,26 @@
+#!/bin/bash
+#
+#  media-utils - Utilities for media files manipulation
+#  Copyright (C) 2010, Eduardo Antunes C. de Sousa
+#
+#  This file is part of media-utils.
+#
+#  media-utils is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or
+#  (at your option) any later version.
+#
+#  media-utils is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with media-utils.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Contact: Eduardo Antunes C. de Sousa <ecsousa@gmail.com>
+#
+
+wget -q --load-cookies ~/l.tv/cookies.txt --post-data=txtLegenda=`perl -MURI::Escape -e 'print uri_escape($ARGV[0]);' "$1"`\&selTipo=1\&int_idioma=99 http://legendas.tv/index.php?opcao=buscarlegenda\&pagina=$2 -O - | sed -e "s/\\\\.//g" -ne "s/.*gpop('\([^']\|\\'\)*','[^']*','\([^']*\)','\([^']*\)','\([^']*\)','\([^']*\)'.*flag_\([^\.]*\)\.gif.*javascript:abredown('\([^']*\)').*/\7: \2; lang: \6, CDs: \3, fps: \4, Tam: \5/p"
+
+
