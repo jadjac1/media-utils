@@ -26,7 +26,7 @@ IFS='
 
 for dir in $1; do
 
-  echo Unpacking $dir...
+  echo Unpacking $dir
 
   if [ ! -e $dir/*.rar ]; then
     files=($(ls -d $dir/*.avi $dir/*.mkv $dir/*.mp4 2>/dev/null));
