@@ -33,7 +33,7 @@ pushd /tmp/subs > /dev/null
 rm * 2>/dev/null
 
 echo Downloading subtitles...
-wget -q --load-cookies ~/l.tv/cookies.txt http://legendas.tv/info.php?d=${1%:}\&c=1 --trust-server-names
+wget -q --load-cookies ~/.media-utils/cookies.txt http://legendas.tv/info.php?d=${1%:}\&c=1 --trust-server-names
 
 if [  -z $2 ]; then
   echo Done!
