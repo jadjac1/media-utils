@@ -21,6 +21,6 @@
 #  Contact: Eduardo Antunes C. de Sousa <ecsousa@gmail.com>
 #
 
-wget -q --load-cookies ~/l.tv/cookies.txt --post-data=txtLegenda=`perl -MURI::Escape -e 'print uri_escape($ARGV[0]);' "$1"`\&selTipo=1\&int_idioma=99 http://legendas.tv/index.php?opcao=buscarlegenda\&pagina=$2 -O - | sed -e "s/\\\\.//g" -ne "s/.*gpop('\([^']\|\\'\)*','[^']*','\([^']*\)','\([^']*\)','\([^']*\)','\([^']*\)'.*flag_\([^\.]*\)\.gif.*javascript:abredown('\([^']*\)').*/\7: \2; lang: \6, CDs: \3, fps: \4, Tam: \5/p"
+wget -q --load-cookies ~/.media-utils/cookies.txt --post-data=txtLegenda=`perl -MURI::Escape -e 'print uri_escape($ARGV[0]);' "$1"`\&selTipo=1\&int_idioma=99 http://legendas.tv/index.php?opcao=buscarlegenda\&pagina=$2 -O - | sed -e "s/\\\\.//g" -ne "s/.*gpop('\([^']\|\\'\)*','[^']*','\([^']*\)','\([^']*\)','\([^']*\)','\([^']*\)'.*flag_\([^\.]*\)\.gif.*javascript:abredown('\([^']*\)').*/\7: \2; lang: \6, CDs: \3, fps: \4, Tam: \5/p"
 
 
